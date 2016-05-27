@@ -9,14 +9,14 @@ import React, {
 } from 'react-native';
 
 let MOCKED_CHAT_DATA = [
-    {channelName: 'Office Talk', status: 'activity', id:1},
-    {channelName: 'Gamers for live', status: 'no activity', id:2},
-    {channelName: '(╯°□°）╯︵ ┻━┻', status: 'activity', id:7},
-    {channelName: 'The next office manager', status: 'no activity', id:4},
-    {channelName: 'Best kept secrets', status: 'activity', id:3},
-    {channelName: 'All about coffee', status: 'no activity', id:5},
-    {channelName: 'Just rage!!', status: 'activity', id:6},
-    {channelName: '┬──┬ ノ( ゜-゜ノ)', status: 'no activity', id:8},
+    {channelURL: 'office-talk', channelName: 'Office Talk', status: 'activity', id:1},
+    {channelURL: 'gamers-for-live', channelName: 'Gamers for live', status: 'no activity', id:2},
+    {channelURL: 'flip-table', channelName: '(╯°□°）╯︵ ┻━┻', status: 'activity', id:7},
+    {channelURL: 'The-next-office-manager', channelName: 'The next office manager', status: 'no activity', id:4},
+    {channelURL: 'best-kept-secrets', channelName: 'Best kept secrets', status: 'activity', id:3},
+    {channelURL: 'all-about-coffee', channelName: 'All about coffee', status: 'no activity', id:5},
+    {channelURL: 'just-rage', channelName: 'Just rage!!', status: 'activity', id:6},
+    {channelURL: 'set-table', channelName: '┬──┬ ノ( ゜-゜ノ)', status: 'no activity', id:8},
 ];
 
 export default class channels extends Component {
@@ -45,7 +45,7 @@ export default class channels extends Component {
         return (
             <ListView
                 dataSource={this.state.dataSource}
-                renderRow={this.renderChannels}
+                renderRow={this.renderChannels.bind(this)}
                 style={styles.ListView}
             />
         )
@@ -53,7 +53,7 @@ export default class channels extends Component {
 
     renderChannels(rowData) {
         return (
-            <TouchableHighlight onPress={() => this.onChannelPress(rowData.channel_url)}>
+            <TouchableHighlight onPress={() => this.onChannelPress(rowData.channelURL)}>
                 <View  style={styles.container}>
                     <View style={styles.leftContainer}>
                         <Text style={styles.channelName}>{rowData.channelName}</Text>
@@ -69,7 +69,7 @@ export default class channels extends Component {
     }
 
     onChannelPress(url) {
-        console.log()
+        this.props.navigator.push({name: 'chat'});
     }
 }
 const styles = StyleSheet.create({

@@ -9,9 +9,11 @@ import React, {
   TouchableHighlight
 } from 'react-native';
 import Channels from './components/Channels';
+import Chat from './components/Chat';
 
 const ROUTES = {
-    channels: Channels
+    channels: Channels,
+    chat: Chat
 }
 
 export default class darkchat extends Component {
@@ -27,6 +29,7 @@ export default class darkchat extends Component {
     render() {
         return (
             <Navigator
+                style={styles.container}
                 configureScene={this.configureScene}
                 initialRoute={{name: 'channels'}}
                 renderScene={this.renderScene}
@@ -132,12 +135,6 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       flexDirection: 'row',
-      backgroundColor: '#1E1E1E',
-      paddingTop: 10,
-      paddingRight: 20,
-      paddingBottom: 10,
-      paddingLeft: 20,
-      borderBottomWidth: 1,
-      borderBottomColor: 'rgba(255, 255, 255, 0.1)'
+      backgroundColor: '#1E1E1E'
     }
 });
