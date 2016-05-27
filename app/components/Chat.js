@@ -37,14 +37,14 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'stretch',
-        backgroundColor: '#ffffff'
+        backgroundColor: '#1C1C1C'
     },
     topContainer: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: '#6E5BAA',
+        backgroundColor: 'rgba(55, 55, 55, 0.6)',
         paddingTop: 20,
     },
     chatContainer: {

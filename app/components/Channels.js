@@ -41,7 +41,20 @@ export default class channels extends Component {
         });
     }
 
+    renderLoadingView() {
+        return (
+            <View style={styles.loadingContainer}>
+                <Text style={styles.loadingText}>
+                    Loading chat list
+                </Text>
+            </View>
+        )
+    }
+
     render() {
+        if (!this.state.loaded) {
+            return this.renderLoadingView();
+        }
         return (
             <ListView
                 dataSource={this.state.dataSource}
@@ -120,5 +133,15 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
       padding: 30
+  },
+  loadingContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 30,
+    backgroundColor: '#1E1E1E'
+  },
+  loadingText: {
+      color: '#ffffff',
+      textAlign: 'center'
   }
 });
