@@ -6,6 +6,7 @@ import React, {
   Text,
   View,
   TouchableHighlight,
+  StatusBar
 } from 'react-native';
 
 let MOCKED_CHAT_DATA = [
@@ -68,6 +69,9 @@ export default class channels extends Component {
         return (
             <TouchableHighlight onPress={() => this.onChannelPress(rowData.channelURL)}>
                 <View  style={styles.container}>
+                    <StatusBar
+                        barStyle="light-content"
+                    />
                     <View style={styles.leftContainer}>
                         <Text style={styles.channelName}>{rowData.channelName}</Text>
                         <Text style={styles.status}>{rowData.status}</Text>

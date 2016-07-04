@@ -8,6 +8,8 @@ import React, {
   Dimensions
 } from 'react-native';
 
+import Messages from './Messages';
+
 const windowSize = Dimensions.get('window');
 
 export default class Chat extends Component {
@@ -24,20 +26,21 @@ export default class Chat extends Component {
             <View style={styles.topContainer}>
                 <TouchableHighlight
                     underlayColor={'#4e4273'}
-                    onPress={this.onBackPress}
+                    onPress={() => this.onBackPress()}
                     style={{marginLeft: 15}}
                     >
-                    <Text style={{color: '#fff'}}>&lt; Back</Text>
+                    <Text>
+                        <Text style={{color: '#fff'}}>&lt; Back</Text>
+                        <Text>The title of the Chat</Text>
+                    </Text>
                 </TouchableHighlight>
             </View>
-            <View style={styles.chatContainer}>
-                <Text style={{color: '#000'}}>Chat</Text>
-            </View>
+            <Messages />
             <View style={styles.inputContainer}>
                 <View style={styles.textContainer}>
                     <TextInput
                         style={styles.input}
-                        value={() => this.state.message}
+                        value={this.state.message}
                         onChangeText={(text) => this.setState({message: text})}
                         />
                 </View>
@@ -72,12 +75,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#1C1C1C'
     },
     topContainer: {
-        flex: 1,
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        alignItems: 'center',
         backgroundColor: 'rgba(55, 55, 55, 0.6)',
         paddingTop: 20,
+        paddingBottom: 20
     },
     chatContainer: {
         flex: 11,
