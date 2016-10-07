@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
+  Image,
   View,
   TouchableHighlight,
   TextInput,
@@ -26,14 +27,26 @@ export default class Chat extends Component {
             <View style={styles.topContainer}>
                 <TouchableHighlight
                     underlayColor={'#4e4273'}
-                    onPress={() => this.onBackPress()}
-                    style={{marginLeft: 15}}
-                    >
-                    <Text>
-                        <Text style={{color: '#fff'}}>&lt; Back</Text>
-                        <Text>The title of the Chat</Text>
-                    </Text>
+                    onPress={() => this.onBackPress()}>
+                    <View style={styles.backContainer}>
+                        <Image
+                            style={styles.backBtn}
+                            source={require('./../images/plus.png')}
+                        />
+                    </View>
                 </TouchableHighlight>
+                <View style={styles.chatTitle}>
+                    <Text
+                        source={require('./../images/plus.png')}>
+                        Text from chat
+                    </Text>
+                </View>
+                <View style={styles.removeContainer}>
+                    <Image
+                        style={styles.removeChatBtn}
+                        source={require('./../images/plus.png')}
+                    />
+                </View>
             </View>
             <Messages />
             <View style={styles.inputContainer}>
@@ -76,10 +89,31 @@ const styles = StyleSheet.create({
     },
     topContainer: {
         flexDirection: 'row',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: windowSize.width,
+        height: 54,
         backgroundColor: 'rgba(55, 55, 55, 0.6)',
-        paddingTop: 20,
-        paddingBottom: 20
+        paddingLeft: 20,
+        paddingRight: 20
+    },
+    backContainer: {
+        alignItems: 'flex-start',
+    },
+    chatTitle: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    removeContainer: {
+        alignItems: 'flex-end',
+    },
+    backBtn: {
+        width: 30,
+        height: 30
+    },
+    removeChatBtn: {
+        width: 30,
+        height: 30
     },
     chatContainer: {
         flex: 11,

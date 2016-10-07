@@ -6,8 +6,11 @@ import {
   Text,
   View,
   TouchableHighlight,
-  StatusBar
+  StatusBar,
+  Dimensions
 } from 'react-native';
+
+const windowSize = Dimensions.get('window');
 
 let MOCKED_CHAT_DATA = [
     {channelURL: 'office-talk', channelName: 'Office Talk', status: 'activity', id:1},
@@ -57,11 +60,18 @@ export default class channels extends Component {
             return this.renderLoadingView();
         }
         return (
-            <ListView
-                dataSource={this.state.dataSource}
-                renderRow={this.renderChannels.bind(this)}
-                style={styles.ListView}
-            />
+            <View>
+                <View style={styles.addGroupBlock}>
+                    <Image
+                        source={require('./../images/plus.png')}
+                        style={styles.addGroupIcon}/>
+                </View>
+                <ListView
+                    dataSource={this.state.dataSource}
+                    renderRow={this.renderChannels.bind(this)}
+                    style={styles.ListView}
+                />
+            </View>
         )
     }
 
@@ -116,7 +126,7 @@ const styles = StyleSheet.create({
   },
   channelName: {
       fontSize: 20,
-      marginBottom: 8,
+      marginBottom: 0.7,
       textAlign: 'left',
       color: '#ffffff'
   },
@@ -132,6 +142,19 @@ const styles = StyleSheet.create({
   arrow: {
       width: 11.12,
       height: 19.41
+  },
+  addGroupBlock: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: windowSize.width,
+      maxHeight: 54,
+      backgroundColor: '#373737'
+  },
+  addGroupIcon: {
+      width: 30,
+      height: 30
   },
   addChat: {
       flex: 1,
