@@ -22,6 +22,7 @@ export default class Chat extends Component {
     }
 
     render() {
+        let chatTitle = `${this.props.chatInfo}`;
         return(
         <View style={styles.container}>
             <View style={styles.topContainer}>
@@ -31,26 +32,29 @@ export default class Chat extends Component {
                     <View style={styles.backContainer}>
                         <Image
                             style={styles.backBtn}
-                            source={require('./../images/plus.png')}
+                            source={require('./../images/back.png')}
                         />
                     </View>
                 </TouchableHighlight>
-                <View style={styles.chatTitle}>
-                    <Text
-                        source={require('./../images/plus.png')}>
-                        Text from chat
+                <View style={styles.titleContainer}>
+                    <Text style={styles.chatTitle}>
+                        {chatTitle}
                     </Text>
                 </View>
                 <View style={styles.removeContainer}>
                     <Image
                         style={styles.removeChatBtn}
-                        source={require('./../images/plus.png')}
+                        source={require('./../images/close.png')}
                     />
                 </View>
             </View>
             <Messages />
             <View style={styles.inputContainer}>
                 <View style={styles.textContainer}>
+                    <Image
+                        style={styles.wallpaper}
+                        source={require('./../images/wallpaper/space_wallpaper-1.jpg')}>
+                    </Image>
                     <TextInput
                         style={styles.input}
                         value={this.state.message}
@@ -100,7 +104,7 @@ const styles = StyleSheet.create({
     backContainer: {
         alignItems: 'flex-start',
     },
-    chatTitle: {
+    titleContainer: {
         flex: 1,
         alignItems: 'center',
     },
@@ -119,6 +123,10 @@ const styles = StyleSheet.create({
         flex: 11,
         justifyContent: 'center',
         alignItems: 'stretch'
+    },
+    chatTitle: {
+        color: '#fff',
+        fontSize: 18
     },
     textContainer: {
         flex: 1,
@@ -150,4 +158,8 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         backgroundColor: '#ffffff'
  },
+ wallpaper: {
+     width: windowSize.width,
+     height: windowSize.height
+ }
 });

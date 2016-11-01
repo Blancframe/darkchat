@@ -95,8 +95,13 @@ export default class channels extends Component {
         )
     }
 
-    onChannelPress(url) {
-        this.props.navigator.push({name: 'chat'});
+    onChannelPress(info) {
+        this.props.navigator.push({
+            name: 'chat',
+            passProps: {
+                chatInfo: info
+            }
+        });
     }
 }
 const styles = StyleSheet.create({
@@ -149,8 +154,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       width: windowSize.width,
-      maxHeight: 54,
-      backgroundColor: '#373737'
+      maxHeight: 54
   },
   addGroupIcon: {
       width: 30,

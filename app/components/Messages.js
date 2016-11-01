@@ -101,7 +101,9 @@ const styles = StyleSheet.create({
     chatContainer: {
         flex: 11,
         justifyContent: 'center',
-        alignItems: 'stretch'
+        alignItems: 'stretch',
+        borderWidth: 1,
+        borderColor: 'red'
     },
     listView: {
         paddingTop: 20,
