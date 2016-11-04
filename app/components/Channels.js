@@ -77,7 +77,7 @@ export default class channels extends Component {
 
     renderChannels(rowData) {
         return (
-            <TouchableHighlight onPress={() => this.onChannelPress(rowData.channelURL)}>
+            <TouchableHighlight onPress={() => this.onChannelPress(rowData)}>
                 <View  style={styles.container}>
                     <StatusBar
                         barStyle="light-content"
@@ -123,6 +123,7 @@ const styles = StyleSheet.create({
   righContainer: {
       flex: 1,
       alignItems: 'flex-end',
+      maxWidth: 15,
       paddingTop: 15,
   },
   thumbnail: {

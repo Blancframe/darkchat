@@ -22,7 +22,7 @@ export default class Chat extends Component {
     }
 
     render() {
-        let chatTitle = `${this.props.chatInfo}`;
+        let chatTitle = `${this.props.chatInfo.channelName}`;
         return(
         <View style={styles.container}>
             <View style={styles.topContainer}>
