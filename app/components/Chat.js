@@ -41,14 +41,10 @@ export default class Chat extends Component {
                         {chatTitle}
                     </Text>
                 </View>
-                <View style={styles.removeContainer}>
-                    <Image
-                        style={styles.removeChatBtn}
-                        source={require('./../images/close.png')}
-                    />
-                </View>
             </View>
-            <Messages />
+            <View style={styles.messages}>
+                <Messages/>
+            </View>
             <View style={styles.inputContainer}>
                 <View style={styles.textContainer}>
                     <Image
@@ -97,9 +93,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: windowSize.width,
         height: 54,
-        backgroundColor: 'rgba(55, 55, 55, 0.6)',
+        backgroundColor: 'transparent',
         paddingLeft: 20,
-        paddingRight: 20
+        paddingRight: 20,
+        zIndex: 1
     },
     backContainer: {
         alignItems: 'flex-start',
@@ -108,15 +105,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
     },
-    removeContainer: {
-        alignItems: 'flex-end',
-    },
     backBtn: {
-        width: 30,
-        height: 30
-    },
-    removeChatBtn: {
-        width: 30,
+        width: 17,
         height: 30
     },
     chatContainer: {
@@ -157,9 +147,17 @@ const styles = StyleSheet.create({
         borderRadius: 2,
         alignSelf: 'center',
         backgroundColor: '#ffffff'
- },
- wallpaper: {
-     width: windowSize.width,
-     height: windowSize.height
- }
+     },
+     wallpaper: {
+         flexDirection: 'row',
+         justifyContent: 'center',
+         width: windowSize.width,
+         height: windowSize.height
+     },
+     messages: {
+         flex: 1,
+         position: 'absolute',
+         height: windowSize.height,
+         zIndex: 1
+     }
 });

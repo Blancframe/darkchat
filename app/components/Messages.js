@@ -18,6 +18,34 @@ let MOCKED_MESSAGES_DATA = [
         inappropriateCount: 0
     },
     {
+        temporaryID: 2,
+        channelID: 1,
+        text: 'Nope, you suck!',
+        timestamp: Date.now(),
+        inappropriateCount: 0
+    },
+    {
+        temporaryID: 3,
+        channelID: 1,
+        text: 'I once went to the Warehouse 33. ',
+        timestamp: Date.now(),
+        inappropriateCount: 0
+    },
+    {
+        temporaryID: 2,
+        channelID: 1,
+        text: 'Woow! I was there. I liked the dancing act. Everyone went crazy. Next time I definitely going to dress up as a jedi.',
+        timestamp: Date.now(),
+        inappropriateCount: 0
+    },
+    {
+        temporaryID: 3,
+        channelID: 1,
+        text: `Godard iPhone pop-up blog. Fingerstache biodiesel raw denim, readymade vinyl franzen celiac hammock aesthetic. Meggings chicharrones gentrify intelligentsia, ugh small batch williamsburg.com organic bitters try-hard authentic kombucha.Slow-carb meditation meggings, `,
+        timestamp: Date.now(),
+        inappropriateCount: 0
+    },
+    {
         temporaryID: 1,
         channelID: 1,
         text: 'Nope, you suck!',
@@ -25,6 +53,8 @@ let MOCKED_MESSAGES_DATA = [
         inappropriateCount: 0
     }
 ]
+
+const windowSize = Dimensions.get('window');
 
 export default class Messages extends Component {
     constructor(props) {
@@ -73,9 +103,9 @@ export default class Messages extends Component {
 
     renderMessages(rowData) {
         return (
-            <View>
-                <View>
-                    <Text>{rowData.text}</Text>
+            <View style={styles.messages}>
+                <View style={styles.messageContainer}>
+                    <Text style={styles.messageText}>{rowData.text}</Text>
                 </View>
             </View>
         )
@@ -99,7 +129,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1C1C1C'
     },
     chatContainer: {
-        flex: 11,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'stretch',
         borderWidth: 1,
@@ -118,5 +148,25 @@ const styles = StyleSheet.create({
     loadingText: {
         color: '#ffffff',
         textAlign: 'center'
+    },
+    messages: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        width: windowSize.width - 20,
+        marginRight: 10,
+        marginLeft: 10,
+        zIndex: 2
+    },
+    messageContainer: {
+        backgroundColor: '#000',
+        marginTop: 10,
+        padding: 5,
+        borderWidth: 1,
+        borderColor: 'rgba(212, 212, 212, 0.5)'
+    },
+    messageText: {
+        color: '#fff'
     }
 });

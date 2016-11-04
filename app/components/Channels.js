@@ -63,7 +63,7 @@ export default class channels extends Component {
             <View>
                 <View style={styles.addGroupBlock}>
                     <Image
-                        source={require('./../images/plus.png')}
+                        source={require('./../images/add.png')}
                         style={styles.addGroupIcon}/>
                 </View>
                 <ListView
